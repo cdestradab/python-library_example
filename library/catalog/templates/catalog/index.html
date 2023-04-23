@@ -9,5 +9,15 @@
     <h1>PAGINA DE INICIO</h1>
     <p>TOTAL DE LIBROS: {{num_books}}</p>
     <p>TOTAL DE COPIAS DE LIBROS DISPONIBLES: {{num_instances_avail}}</p>
+
+    {% if user.is_authenticated %}
+        <p>Estás autenticado</p>
+        <p>Bienvenido, {{user.get_username}}</p>
+        <a href="{% url 'logout' %}?next={{request.path}}">CERRAR SESIÓN</a>
+    {% else %}
+        <p>No estás autenticado</p>
+        <a href="{% url 'login' %}">INICIAR SESIÓN</a>
+    {% endif %}
+
 </body>
 </html>
