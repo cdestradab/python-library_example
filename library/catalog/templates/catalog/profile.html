@@ -1,0 +1,8 @@
+<h1>BIENVENIDO A TU PERFIL</h1>
+<h2>Aquí están los libros que has tomado prestados:</h2>
+
+{% for book in bookinstance_list %}
+
+    <p>{{book}}</p>
+
+{% endfor %}
